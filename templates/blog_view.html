@@ -1,0 +1,21 @@
+{% extends "default.html" %}
+{% load newfilters %}
+
+
+{% block title %} Blog {% endblock %}
+{% block content %}
+<div id="blog_content">
+{% for b in blog %}
+    <h3>{{b.title}}</h3>
+     <div class="date_blog">{% autoescape off %}{{b.date|formatdate}}{% endautoescape %}</div>
+    <div>{% autoescape off %}{{b.text}}{% endautoescape %}
+    </div>       
+<br class="clr" />
+    
+    <br />
+    <hr />
+    <br />
+    <br />
+{% endfor %}
+</div>
+{%endblock%}

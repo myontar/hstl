@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Chillout Hostels | {% block title %} {% endblock %}</title>
+        <link rel="stylesheet" type="text/css"  media="screen, projection" href="{{ MEDIA_URL }}combined-{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script type="text/javascript">var media='{{ MEDIA_URL }}global/';</script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}combined-{{ LANGUAGE_CODE }}.js"></script>
+
+    </head>
+    <body>
+        <div id="body">
+
+            <div>
+                <img  src="{{ MEDIA_URL }}global/images/logo.png" />
+
+            </div>
+
+            <div id="hostels">
+
+                <img src="{{ MEDIA_URL }}global/images/classic-logo.png" class="m20" />
+                <img src="{{ MEDIA_URL }}global/images/lya-logo.png" class="m20" />
+                <img src="{{ MEDIA_URL }}global/images/cengo-logo.png" class="m20" />
+            </div>
+             <div id="desc">click and go our hostels</div>
+            <div id="menu">
+                <a href="/blog" class="mm">Blog</a>
+                <a href="/blog" class="mm">Contact</a>
+                <a href="/blog" class="mm">Where go to</a>
+                <a href="/blog" class="mm">Events</a>
+                <a href="/blog" class="mm">Info</a>
+
+            </div>
+            <div id="content">
+
+                {% block content %} {% endblock %}
+                  
+            </div>
+        </div>
+        <div id="bsun"></div>
+        <div id="blt1"></div>
+        <div id="blt2"></div>
+        <div id="blt3"></div>
+
+    </body>
+</html>
