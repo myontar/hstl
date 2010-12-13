@@ -12,11 +12,18 @@ urlpatterns = auth_patterns + patterns('',
     ('^admin/(.*)', admin.site.root),
     (r'^$', 'hmain.views.index'),
     (r'^blog$', 'hmain.views.blog'),
+    (r'^guestbook$', 'hmain.views.guestbook'),
+    (r'^writeguest$', 'hmain.views.writeguest'),
+    (r'^events$', 'hmain.views.eventlist'),
+    (r'^book$', 'hmain.views.booknow'),
+    (r'^booknow$', 'hmain.views.booknow'),
+
     (r'^blog/(.*)$', 'hmain.views.blog_view'),
     (r'^evtimage/(.*)/thm$', 'hmain.views.events_imagethm'),
     (r'^create_admin_user$', 'hmain.views.create_admin_user'),
 
-
+    (r'^hostel/(.*)$', 'hmain.views.pages'),
+    (r'^lang/(.*)$', 'hmain.views.setlang'),
     (r'^evtimage/(.*)$', 'hmain.views.events_image'),
     
     

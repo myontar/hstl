@@ -1,0 +1,65 @@
+{% extends "default.html" %}
+{% load newfilters %}
+
+
+{% block title %} Blog {% endblock %}
+{% block content %}
+
+<div class="desc">{% lang "guestbook" %}</div>
+
+
+ <br />
+ <a href="/writeguest">{% lang "writeyourrewiev" %}</a>
+    <br />
+<div class="gbox">
+<div id="blog_content">
+ if you have a facebook please login <a href="javascript:lgnfc();">via facebook</a>.
+
+ <form action="" method="post">
+     <label id="name_i">Name :</label><br />
+     <input type="text" id="name"  name="name"/><br /><br />
+     <label id="email_i">E-mail :</label><br />
+     <input type="text" id="mail" name="mail" /><br /><br />
+     <input type="hidden" id="access_token" name="access_token" />
+     <label>Review :</label><br />
+     <textarea id="review" name="review"></textarea> <br /><br />
+     <input type="submit" value="Submit Your Review" />
+ </form>
+
+</div>
+    </div>
+    <script>
+    jQuery("#page_guestbook").addClass("mmactive");
+</script>
+         
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      // initialize the library with the API key
+      FB.init({ apiKey: '4cd90030c416e5d7ad58b751722e7e9f' });
+      </script>
+     <script>
+        function lgnfc() {
+            FB.login(function(response) {
+			 if (response.perms) {
+                             
+                                    ahanda = response.session['access_token'];
+                                    FB.api('/me', function(response) {
+                                    jQuery("#name").val(response.name);
+                                    jQuery("#name").hide();
+                                    jQuery("#name_i").hide();
+                                    jQuery("#mail").val(response.email);
+                                    jQuery("#email_i").hide();
+                                    jQuery("#mail").hide();
+                                    
+                                    jQuery("#access_token").val(ahanda);
+
+                                      //alert(response.name);
+                                    });
+				  //document.location = '/login/adminface';
+                                  alert("ok");
+			  }
+			}, {perms:'user_birthday,email,publish_stream'});
+        }
+        </script>
+{%endblock%}

@@ -1,0 +1,24 @@
+{% extends "default.html" %}
+{% load newfilters %}
+
+
+{% block title %} {{page.pagename}}  {% endblock %}
+{% block content %}
+<br />
+<div class="desc">{{page.pagename}}</div>
+<br />
+<br />
+<div class="gbox">
+
+     <div>
+         {% menu page.pageMenu %}
+         {% autoescape off %}{{page.pagetext}}{% endautoescape %}
+         <br class="clear" />
+     </div>
+    
+ </div>
+<script>
+    jQuery("#page_{{rewrite}}").addClass("mmactive");
+</script>
+
+{%endblock%}

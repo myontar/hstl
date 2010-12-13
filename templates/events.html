@@ -1,0 +1,33 @@
+{% extends "default.html" %}
+{% load newfilters %}
+
+
+{% block title %} {{page.pagename}}  {% endblock %}
+{% block content %}
+<br />
+<div class="desc">{% lang "events" %}</div>
+<br />
+<br />
+<div class="gbox">
+
+                     {% for ev in events %}
+                     <div class="two">
+                        <div class="eventsz">
+                            <img src="/evtimage/{{ev.id}}/thm" />
+                            <h3>{{ev}}</h3>
+                            <div class="f">
+                            <div class="v">{{ev.event_date|gdate:"%d"}}</div>
+                            <div class="z">{{ev.event_date|gdate:"%b"}}<br />{{ev.event_date|gdate:"%H:%M"}}</div><br class="clr" />
+                            </div>
+                            <div class="z2">@{{ev.event_venue}}</div>
+                            <br class="clr" />
+                        </div>
+                     </div>
+                        {% endfor %}
+                        <br class="clear" />
+ </div>
+<script>
+    jQuery("#page_event").addClass("mmactive");
+</script>
+
+{%endblock%}

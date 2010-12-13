@@ -1,0 +1,1 @@
+c:\python26\python C:\Users\John\Desktop\hostel\manage.py update

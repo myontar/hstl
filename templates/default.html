@@ -1,3 +1,4 @@
+{% load newfilters %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -10,38 +11,82 @@
 
     </head>
     <body>
-        <div id="body">
-
+        <div id="Lang">
+            Please select your language : <b>{{sellang}}</b>
+            <div id="langlist">
+                {% for k in langlist %}
+                <a href="/lang/{{k}}">{{k}}</a>
+                {% endfor %}
+            </div>
             <div>
-                <img  src="{{ MEDIA_URL }}global/images/logo.png" />
-
-            </div>
-
-            <div id="hostels">
-
-                <img src="{{ MEDIA_URL }}global/images/classic-logo.png" class="m20" />
-                <img src="{{ MEDIA_URL }}global/images/lya-logo.png" class="m20" />
-                <img src="{{ MEDIA_URL }}global/images/cengo-logo.png" class="m20" />
-            </div>
-             <div id="desc">click and go our hostels</div>
-            <div id="menu">
-                <a href="/blog" class="mm">Blog</a>
-                <a href="/blog" class="mm">Contact</a>
-                <a href="/blog" class="mm">Where go to</a>
-                <a href="/blog" class="mm">Events</a>
-                <a href="/blog" class="mm">Info</a>
-
-            </div>
-            <div id="content">
-
-                {% block content %} {% endblock %}
-                  
+            <a href=""></a>
             </div>
         </div>
+        <div id="body">
+
+
+
+            <div id="left">
+                <img src="{{ MEDIA_URL }}global/images/logo.png"/>
+
+
+                <br />
+                <a href="/booknow" id="booknow">{% lang "booknow" %}</a>
+                <br />
+                <div id="menu">
+                    <a href="/"  id="page_main">{% lang "main_menu" %}</a>
+
+                {% for menu in menus %}
+
+                   {% ifequal menu.menugopage 1 %}
+                    <a href="/hostel/{{menu.menupage.rewrite}}" id="page_{{menu.menupage.rewrite}}" class="mm">
+
+                   {% else %}
+                     <a href="{{menu.menugourl}}" id="page_{{menu.menupage.rewrite}}">
+                   {% endifequal %}
+                        {{menu.name}}</a>
+                {% endfor  %}
+
+                <a href="/blog"  id="page_blog">{% lang "blog" %}</a>
+                <a href="/guestbook"  id="page_guestbook">{% lang "guestbook" %}</a>
+
+                <a href="/events"   id="page_event">{% lang "event" %}</a>
+                <a href="/book"  id="page_booknow">{% lang "booknow" %}</a>
+                <a href="/hostel/info"   id="page_info">{% lang "info" %}</a>
+
+            </div>
+            </div>
+            
+            <div id="right">
+                <div id="content">
+                 <div class="desc">
+                    {% lang "clickandgoourhostels" %}
+
+                </div>
+                    <div style="text-align: center;width: 625px;">
+                        <div style="width:300px; text-align:justify;margin:auto;">
+                           <img src="{{ MEDIA_URL }}global/images/logo_classic.png" width="60"/>
+                           <img src="{{ MEDIA_URL }}global/images/logo_cengo.png"  width="60"/>
+                           <img src="{{ MEDIA_URL }}global/images/logo_lya.png"  width="60"/>
+                        </div>
+                    </div>
+                {% block content %} {% endblock %}
+
+            </div>
+            </div>
+
+        </div>
+
+            
+             
+            
+            
+       
         <div id="bsun"></div>
         <div id="blt1"></div>
         <div id="blt2"></div>
         <div id="blt3"></div>
+   
 
     </body>
 </html>

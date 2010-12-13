@@ -2,18 +2,24 @@
 {% load newfilters %}
 
 {% block content%}
+<br />
+<div class="desc">
+    <div class="two">{% lang "lastblogpost" %}</div>
+    <div class="two">{% lang "events" %}</div>
+    <br class="clear" />
+</div>
+<br />
 <div class="gbox">
-                    <h2>Latest Blog Posts</h2>
+    <div class="two">
                     <div class="d">
 
                         {%for b in blog%}
                         <a href="/blog/{{b.rewrite}}">{{b.title}}</a>
                         {% endfor %}
                     </div>
-                </div>
-                 <div class="rbox">
-                    <h2>Events</h2>
-                    <div class="d">
+</div>
+    <div class="two">
+        <div class="d2">
                         {% for ev in events %}
                         <div class="events">
                             <img src="/evtimage/{{ev.id}}/thm" />
@@ -31,5 +37,55 @@
                            {% endfor %}
                         </div>
                     </div>
+
+    </div>
+    <br class="clear" />
                 </div>
+
+<br />
+<div class="desc">{% lang "insocial" %}</div>
+<br />
+<br />
+<div class="gbox">
+<div class="two">
+
+    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D167795576589520&amp;width=292&amp;colorscheme=light&amp;connections=10&amp;stream=true&amp;header=false&amp;height=300" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:300px;" allowTransparency="true"></iframe>
+
+</div>
+<div class="two">
+    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#52ff9d',
+      color: '#2e2b2e'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#707070',
+      links: '#7965eb'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: true,
+    behavior: 'all'
+  }
+}).render().setUser('myontar').start();
+jQuery("#page_main").addClass("mmactive");
+</script>
+</div>
+    <br class="clear" />
+</div>
 {% endblock %}

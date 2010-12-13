@@ -42,8 +42,8 @@ var main      = {
               eventList[eventList.length-1].fadeOut("slow",function() {
                   eventList[eventList.length-1].hide();
                   eventList[evt].fadeIn("slow");
-                  jQuery(".ed > a > img").attr("src",media+"images/point1.png");
-                  eventL[evt].find("img").attr("src",media+"images/point2.png");
+                  jQuery(".ed > a > img").attr("src",media+"images/ico.png");
+                  eventL[evt].find("img").attr("src",media+"images/ico2.png");
                   evt++;
                   if(evt == eventList.length) evt = 0;
                   setTimeout("main.eventsHold();",10000);
@@ -51,8 +51,8 @@ var main      = {
           });
           } else {
               eventList[evt].fadeIn("slow");
-              jQuery(".ed > a > img").attr("src",media+"images/point1.png");
-              eventL[evt].find("img").attr("src",media+"images/point2.png");
+              jQuery(".ed > a > img").attr("src",media+"images/ico.png");
+              eventL[evt].find("img").attr("src",media+"images/ico2.png");
               evt++;
               if(evt == eventList.length) evt = 0;
               setTimeout("main.eventsHold();",10000);
@@ -62,8 +62,8 @@ var main      = {
               eventList[evt-1].fadeOut("slow",function() {
                   eventList[evt-1].hide();
                   eventList[evt].fadeIn("slow");
-                  jQuery(".ed > a > img").attr("src",media+"images/point1.png");
-                  eventL[evt].find("img").attr("src",media+"images/point2.png");
+                  jQuery(".ed > a > img").attr("src",media+"images/ico.png");
+                  eventL[evt].find("img").attr("src",media+"images/ico2.png");
                   evt++;
                   if(evt == eventList.length) evt = 0;
                   setTimeout("main.eventsHold();",10000);

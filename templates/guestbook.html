@@ -5,15 +5,19 @@
 {% block title %} Blog {% endblock %}
 {% block content %}
 
-<div class="desc">{% lang "blog" %}</div>
+<div class="desc">{% lang "guestbook" %}</div>
+
+
  <br />
+ <a href="/writeguest">{% lang "writeyourrewiev" %}</a>
     <br />
 <div class="gbox">
 <div id="blog_content">
-{% for b in blog %}
-    <h3>{{b.title}}</h3>
+{% for b in guest %}
      <div class="date_blog">{% autoescape off %}{{b.date|formatdate}}{% endautoescape %}</div>
-    <div>{% autoescape off %}{{b.text|limittext:b.rewrite}}{% endautoescape %}
+    <div>
+        <b>{{b.froms}}</b><br />
+        {{b.text}}
     </div>       
 <br class="clr" />
     
@@ -25,6 +29,6 @@
 </div>
     </div>
     <script>
-    jQuery("#page_blog").addClass("mmactive");
+    jQuery("#page_guestbook").addClass("mmactive");
 </script>
 {%endblock%}

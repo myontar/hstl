@@ -1,0 +1,25 @@
+{% extends "default.html" %}
+{% load newfilters %}
+
+
+{% block title %} {{page.pagename}}  {% endblock %}
+{% block content %}
+<br />
+<div class="desc">{% lang "booknow" %}</div>
+<br />
+<br />
+<div class="gbox">
+
+    <label>{% lang "name" %}</label><br /><input type="text" id="name" name="name" /><br />
+    <label>{% lang "surname" %}</label><br /><input type="text" id="name" name="name" /><br />
+    <label>{% lang "arrival_date" %}</label><br /><input type="text" id="name" name="name" /><br />
+    <label>{% lang "departure_date" %}</label><br /><input type="text" id="name" name="name" /><br />
+
+   
+
+ </div>
+<script>
+    jQuery("#page_booknow").addClass("mmactive");
+</script>
+
+{%endblock%}
